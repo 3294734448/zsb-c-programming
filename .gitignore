@@ -1,0 +1,10 @@
+# 校验产物（gcc 编译出的可执行文件与测试输入输出），不进版本库
+.build/verify/
+.build/verify2/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*.tmp
