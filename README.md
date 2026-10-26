@@ -3,9 +3,19 @@
 > **75 道题，每一道的参考答案都在本机用 gcc 真机编译、运行、逐字比对过输出。**
 > 不是「看着对」，是机器验证过：`72 个程序实测通过 / 0 个失败 / 3 个因本机沙箱拒绝执行（已用等价程序验证）`。
 
-配套《[专升本计算机C语言知识点梳理](../专升本计算机C语言知识点梳理/专升本计算机C语言知识点梳理.html)》使用：**先读知识点，再做这里的题**。
+配套《[专升本计算机C语言知识点梳理](https://3294734448.github.io/zsb-c-programming/knowledge.html)》使用：**先读知识点，再做这里的题**。
 
 ---
+
+## 在线阅读与离线下载
+
+- **[资料首页](https://3294734448.github.io/zsb-c-programming/)**
+- **[知识点梳理](https://3294734448.github.io/zsb-c-programming/knowledge.html)**：完整 15 章。
+- **[编程题库](https://3294734448.github.io/zsb-c-programming/C语言编程题库.html)**：75 道题。
+- **[离线资料包](https://3294734448.github.io/zsb-c-programming/downloads/zsb-c-materials.zip)**：解压后打开 `index.html`，断网也可使用。
+- 备用：[知识点 Markdown 目录](knowledge/README.md)、[下载整个仓库](https://github.com/3294734448/zsb-c-programming/archive/refs/heads/main.zip)。
+
+资料完整保存在本仓库，访问不依赖作者电脑的目录和文件位置。HTML 内嵌样式与脚本，不依赖第三方 CDN。
 
 ## 一、怎么用（照这个顺序，别跳）
 
@@ -14,7 +24,7 @@
 | 1 | 打开 `C语言编程题库.html`（双击即可，手机也能看），按章节顺序做题 |
 | 2 | **先自己写**，卡住也想 10 分钟，再点开「参考答案」折叠块 |
 | 3 | 对完答案，问自己：**我错在哪一步？**（是语法、边界，还是思路） |
-| 4 | 把错题抄进 `D:\专升本\C语言错题本\错题.md`，知识点填对应章号（如 `05-循环结构`） |
+| 4 | 把错题记录在自己的错题本中，知识点填对应章号（如 `05-循环结构`） |
 | 5 | 第二天**不看答案重写一遍**，做对后在网页上打勾（进度存在浏览器里） |
 | 6 | 每章末尾的「自查清单」逐条过一遍，答不上来的回去补知识点 |
 
@@ -86,13 +96,13 @@
 ## 五、校验怎么做的（为什么可以信）
 
 ```powershell
-cd 'D:\专升本\C语言编程题库'
+cd zsb-c-programming
 
 # 1) 校验所有参考答案：真实编译 + 运行 + 与样例逐字比对
-& 'C:\Program Files\nodejs\node.exe' .build\verify.mjs
+node .build\verify.mjs
 
 # 2) 重新生成网页
-& 'C:\Program Files\nodejs\node.exe' .build\build.mjs
+node .build\build.mjs
 ```
 
 - **75 个参考答案全部是完整可运行程序**，不是伪代码；
@@ -136,6 +146,14 @@ C语言编程题库/
 ## 七、配套资料
 
 - 《专升本计算机C语言知识点梳理》—— 15 章、410 个代码块、235 个实测示例，可与本题库逐章对照；
-- `D:\专升本\C语言错题本`—— 错题记录 + 47 条易错速查 + 单文件网页。
+- 建议建立自己的错题本，记录错因并定期重做。
 
 祝顺利。**能独立写出来，才算学会。**
+
+## 发布维护
+
+GitHub Pages 使用 `main` 分支根目录。固定入口为 `index.html`、`knowledge.html` 和 `C语言编程题库.html`；请保留这些地址。
+
+知识点源文件在 `knowledge/`。修改后执行 `node knowledge/.build/build.mjs`，再执行 `python .build/package-offline.py` 更新离线包，并提交生成的 HTML 和 ZIP。在线页面直接使用仓库中的完整文件，不需要本机运行服务。
+
+在线访问依赖 GitHub 仓库与 Pages 服务保持可用；下载保存的离线包可以独立阅读。不要删除公开仓库或关闭 Pages。
